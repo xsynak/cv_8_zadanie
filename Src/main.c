@@ -31,7 +31,8 @@ extern uint64_t disp_time;
 uint64_t saved_time;
 double num_to_display = 10;
 
-char name[]="danIEL_UJJ_98375";
+//char name[]="danIEL_UJJ_98375";
+char name[]="SaMUEL_SynaK_98368";
 char display[4];
 
 int left_to_right=1;
@@ -66,7 +67,7 @@ int main(void)
 			  display[i]=name[position+i];
 		  }
 		  position=position+1;
-		  if(position+4>=(sizeof(name)/sizeof(char))){
+		  if(position+5 >= (sizeof(name)/sizeof(char))){
 			  left_to_right=0;
 		  }
 	  }
@@ -75,7 +76,7 @@ int main(void)
 			  display[i]=name[position+i];
 		  }
 		  position=position-1;
-		  if(position==0){
+		  if(position == 0){
 			  left_to_right=1;
 		  }
 	  }
