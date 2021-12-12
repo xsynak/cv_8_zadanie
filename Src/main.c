@@ -31,6 +31,12 @@ extern uint64_t disp_time;
 uint64_t saved_time;
 double num_to_display = 10;
 
+char name[]="danIEL_UJJ_98375";
+char display[4];
+
+int left_to_right=1;
+int position=0;
+
 int main(void)
 {
 
@@ -55,17 +61,28 @@ int main(void)
 
   while (1)
   {
-	  if(disp_time > (saved_time + 100))
-	  {
-		  displayNumber(num_to_display);
-	  	  num_to_display -= 0.10;
-	  	  saved_time = disp_time;
-
-	  	  if(num_to_display <= 0)
-	  	  {
-	  		  num_to_display = 100;
-	  	  }
+	  if(left_to_right==1){
+		  for(int i=0; i<=3;i++){
+			  display[i]=name[position+i];
+		  }
+		  position=position+1;
+		  if(position+4>=(sizeof(name)/sizeof(char))){
+			  left_to_right=0;
+		  }
 	  }
+	  else if(left_to_right==0){
+		  for(int i=3; i>=0;i--){
+			  display[i]=name[position+i];
+		  }
+		  position=position-1;
+		  if(position==0){
+			  left_to_right=1;
+		  }
+	  }
+
+	  displayName(display);
+	  LL_mDelay(500);
+
   }
 
 }
